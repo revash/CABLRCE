@@ -20,6 +20,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import org.primefaces.context.RequestContext;
 
 /**
@@ -98,6 +99,9 @@ public class RoleBean {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Se deben ingresar Solo Numeros en el ID", null));
         }
     
+    }
+    public void ejecutar(){
+        System.out.println("si ejecuta");
     }
     
     public void onRowSelect(){
