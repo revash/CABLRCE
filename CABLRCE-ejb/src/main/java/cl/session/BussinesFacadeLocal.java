@@ -18,6 +18,8 @@ public interface BussinesFacadeLocal {
     
     public Professional getProfessional(Integer rut, String dv,String clave);
     public boolean existeRolID(Integer id);
+    public boolean existeUnitId(Integer id);
+    public boolean existeSpecialityID(Integer id);
     
     
 }
