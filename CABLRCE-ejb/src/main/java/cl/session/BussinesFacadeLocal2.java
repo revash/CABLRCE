@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cl.session;
 
-import cl.entity.Professional;
 import javax.ejb.Local;
 
 /**
  *
- * @author AndresEduardo
+ * @author MaxiCorp
  */
 @Local
-public interface BussinesFacadeLocal {
-    
-    public Professional getProfessional(Integer rut, String dv,String clave);
-    public boolean existeRolID(Integer id);
-    
-    
+public interface BussinesFacadeLocal2 {
+    public boolean existeReligionId(Integer id);
 }
