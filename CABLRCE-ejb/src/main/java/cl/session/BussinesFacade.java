@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cl.session;
 
 import cl.entity.Professional;
@@ -16,10 +15,9 @@ import javax.persistence.Query;
  *
  * @author AndresEduardo
  */
-
 @Stateless
-public class BussinesFacade implements BussinesFacadeLocal{
-    
+public class BussinesFacade implements BussinesFacadeLocal {
+
     @PersistenceContext(unitName = "cl_CABLRCE-ejb_ejb_1.0-SNAPSHOTPU")
     private EntityManager em;
 
@@ -42,10 +40,23 @@ public class BussinesFacade implements BussinesFacadeLocal{
 
     @Override
     public boolean existeRolID(Integer id) {
-       Query q = em.createQuery("SELECT r FROM Role r WHERE r.roleid = :id");
-       q.setParameter("id", id);
-       return q.getResultList().isEmpty();
+        Query q = em.createQuery("SELECT r FROM Role r WHERE r.roleid = :id");
+        q.setParameter("id", id);
+        return q.getResultList().isEmpty();
     }
-    
-    
+
+    @Override
+    public boolean existeUnitId(Integer id) {
+        Query q = em.createQuery("SELECT u FROM Unit u WHERE u.unitid = :id");
+        q.setParameter("id", id);
+        return q.getResultList().isEmpty();
+    }
+
+    @Override
+    public boolean existeSpecialityID(Integer id) {
+        Query q = em.createQuery("SELECT u FROM Speciality u WHERE u.specialityid = :id");
+        q.setParameter("id", id);
+        return q.getResultList().isEmpty();
+    }
+
 }
