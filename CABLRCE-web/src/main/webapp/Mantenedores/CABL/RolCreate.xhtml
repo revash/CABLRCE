@@ -23,7 +23,9 @@
                                 <div class="form-group">
                                     <p:outputLabel value="Roleid:" for="roleid" styleClass="col-md-4 control-label" />
                                     <div class="col-md-4">
-                                        <p:inputText id="roleid" value="#{roleBean.auxID}" title="Roleid" styleClass="form-control input-md" required="true" requiredMessage="The Roleid field is required."/>
+                                        <p:inputText id="roleid" value="#{roleBean.auxID}" title="Roleid" styleClass="form-control input-md" required="true" requiredMessage="The Roleid field is required.">
+                                            <p:ajax event="blur" update="btnGuardar" listener="#{roleBean.checkNumero()}"/>
+                                        </p:inputText>
                                     </div>
                                 </div>
 
@@ -37,8 +39,9 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label"></label>
                                     <div class="col-md-4">
-                                        <p:commandButton value="Guardar" actionListener="#{roleBean.createRol()}" update="growl" styleClass="btn btn-success" />
-                                        <p:commandButton value="Cancelar" onclick="volver();" styleClass="btn btn-danger" />
+                                        <p:commandButton id="btnGuardar" value="Guardar" actionListener="#{roleBean.createRol()}" 
+                                                         disabled="#{roleBean.botonGuardar}" update="growl" styleClass="btn btn-success" />
+                                        <p:commandButton value="Cancelar" onclick="volver('#{appBean.baseUrl}/Mantenedores/CABL/Roles.xhtml');" styleClass="btn btn-danger" />
                                     </div>
                                 </div>
                             </h:form>
