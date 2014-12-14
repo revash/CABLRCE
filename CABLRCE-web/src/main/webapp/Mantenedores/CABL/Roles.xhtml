@@ -12,15 +12,15 @@
             <ui:define name="content">
                 <f:view>
                     <div id="content" style="margin-left:0px !important;">
-                        <p:growl id="growl" showSummary="true" life="3000"  /> 
-                        <h:form id="formTableRol">
+                        <h:form>
                             <div class="menubar">
                                 <div class="sidebar-toggler visible-xs">
                                     <i class="ion-navicon"></i>
                                 </div>
                                 <div class="page-title">
-                                    Roles
+                                    Lista Roles
                                 </div>
+
                             </div>
                             <div class="content-wrapper">  
                                 <p:dataTable 
@@ -37,7 +37,6 @@
                                     filteredValue="#{roleBean.filterRoles}"
                                     emptyMessage="No se encontraron resultados">
                                     <p:ajax event="rowSelect" listener="#{roleBean.onRowSelect()}" 
-                                            update="cmdEditar"
                                             />
                                     <f:facet name="header">
                                         <p:outputPanel>
@@ -57,19 +56,23 @@
                                         </f:facet>
                                         <h:outputText value="#{item.rolename}"/>
                                     </p:column>
+
                                     <f:facet name="footer">
                                         <p:outputLabel value="Acciones"/>
                                         <p:commandButton id="cmdAgregar" value="Agregar" styleClass="btn btn-default btn-xs"
-                                                         action="RolCreate.xhtml"/>
-                                        <p:commandButton id="cmdEditar" value="Modificar" styleClass="btn btn-default btn-xs" action="RolUpdate.xhtml" disabled="#{roleBean.botonGuardar}">
+                                                         action="RolCreate.xhtml" process="rolTable"/>
+                                        <p:commandButton id="cmdEditar" value="Modificar" styleClass="btn btn-default btn-xs"
+                                                         action="RolUpdate.xhtml" process="rolTable">
                                             <f:setPropertyActionListener value="#{roleBean.selectedRol}" target="#{roleBean.rol}" />
                                         </p:commandButton>
                                     </f:facet>
                                 </p:dataTable>
                             </div>
                         </h:form>
+
                     </div>
                 </f:view>
+
 
             </ui:define>
 

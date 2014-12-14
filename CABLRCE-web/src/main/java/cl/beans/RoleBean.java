@@ -20,7 +20,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 import org.primefaces.context.RequestContext;
 
 /**
@@ -100,11 +99,15 @@ public class RoleBean {
         }
     
     }
-    public void ejecutar(){
-        System.out.println("si ejecuta");
+    
+    public String redirectEdit()throws IOException{
+        System.out.println("entro");
+        return "RolUpdate.xhtml";
     }
     
     public void onRowSelect(){
+        rol = selectedRol;
+        System.out.println("rol id " + rol.getRoleid());
         botonGuardar = false;
     }
     

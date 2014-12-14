@@ -5,7 +5,6 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-
     <body>
 
         <ui:composition template="./../../layouts/administrador.xhtml">
@@ -15,12 +14,16 @@
 
                     <div id="content" style="margin-left: 0px !important;">
                         <fieldset>
-                            <legend>Modificar Rol</legend>
-                            <h:form styleClass="form-horizontal" id="FormEditRol" >
+                            <legend>Editar Rol</legend>
+                            <h:form styleClass="form-horizontal" id="fromEditRol" >
                                 <p:growl id="growl" showSummary="true" life="3000"  />  
-                                <p:inputText type="hidden" id="roleid" value="#{roleBean.rol.roleid}" title="Rolename" styleClass="form-control input-md" />
+
+
+                                
+                                <p:inputText type="hidden" id="roleid" value="#{roleBean.rol.roleid}" title="Roleid" styleClass="form-control input-md" />
+                                  
                                 <div class="form-group">
-                                    <p:outputLabel value="Nombre del Rol" for="rolename" styleClass="col-md-4 control-label" />
+                                    <p:outputLabel value="Rolename:" for="rolename" styleClass="col-md-4 control-label" />
                                     <div class="col-md-4">
                                         <p:inputText id="rolename" value="#{roleBean.rol.rolename}" title="Rolename" styleClass="form-control input-md" />
                                     </div>
@@ -30,13 +33,15 @@
                                     <label class="col-md-4 control-label"></label>
                                     <div class="col-md-4">
                                         <p:commandButton value="Guardar" actionListener="#{roleBean.editRol()}" update="growl" styleClass="btn btn-success" />
-                                        <p:commandButton value="Cancelar" onclick="volver('#{appBean.baseUrl}/Mantenedores/CABL/Roles.xhtml')" styleClass="btn btn-danger" />
+                                        <p:commandButton value="Cancelar" onclick="volver();" styleClass="btn btn-danger" />
                                     </div>
                                 </div>
                             </h:form>
                         </fieldset>
                     </div>
                 </f:view>
+
+                
 
             </ui:define>
 
